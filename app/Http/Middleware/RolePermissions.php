@@ -18,8 +18,7 @@ class RolePermissions
     {
         if (in_array($request->user()->role, $roles)) {
             return $next($request);
-        } else {
-            return redirect('/home');
         }
+        return redirect('/home');
     }
 }
