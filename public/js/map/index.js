@@ -1,5 +1,8 @@
 var url = `https://albaihaqimf.github.io/api/v1/data/lampung.json`;
-var map = L.map("mapid").setView([-4.862951019353376, 105.03041494893144], 9);
+var map = L.map("mapid", {
+    zoomControl: false,
+}).setView([-4.862951019353376, 105.03041494893144], 9);
+L.control.zoom({ position: "bottomleft" }).addTo(map);
 L.tileLayer(
     "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZmhtYWxiYSIsImEiOiJja3BlMnBha2QwNDFmMm9yaXoybTNqN3o4In0.mJvOMMlzRvQIlgXtG5L_7A",
     {
@@ -11,6 +14,10 @@ L.tileLayer(
         accessToken: "your.mapbox.access.token",
     }
 ).addTo(map);
+
+const urlParam = new URLSearchParams(window.location.search);
+
+//JQuery Start
 $(document).ready(function () {
     var zoomValue = map.getZoom();
 
@@ -36,8 +43,7 @@ $(document).ready(function () {
                     iconSize: [100, 20],
                 });
                 // L.marker(layer.getBounds().getCenter(),{icon:iconCustom}).addTo(map)
-                setInterval(() => {
-                    if (map.getZoom() < 9) {
+                if (map.getZoom() < 10) {
                     $("window").on("resize");
                     layer.on("mouseover", function () {
                         this.setStyle({
@@ -51,8 +57,7 @@ $(document).ready(function () {
                             fillOpacity: "0.5",
                         });
                     });
-                    }
-                },1);
+                }
 
                 layer.on("click", function () {
                     map.flyToBounds(layer.getBounds());
@@ -62,6 +67,4 @@ $(document).ready(function () {
         });
         geojson.addTo(map);
     });
-    // alert(zoomValue)
-});
-// L.geoJSON(geoJSON).addTo(map)
+}); //JQuery End

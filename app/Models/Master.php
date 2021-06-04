@@ -5,7 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class kabupaten extends Model
+class Master extends Model
 {
-    use HasFactory;
+    public function disasters()
+    {
+        return $this->hasMany(Disaster::class);
+    }
 }

@@ -14,19 +14,24 @@
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
     <style>
-        body {
+        body,* {
             margin: 0;
             padding: 0;
         }
-
+        .navbar{
+            height: 70px;
+        }
         #mapid {
-            height: 100vh;
+            height: calc(100vh - 70px);
         }
     </style>
 </head>
 
 <body>
-    <div>
+    <div class="container-fluid" style="padding: 0">
+        <div class="navbar">
+            <div class="navbar-brand">WebGIS</div>
+        </div>
         <div id="mapid"></div>
     </div>
 </body>
