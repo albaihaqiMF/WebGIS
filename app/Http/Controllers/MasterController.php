@@ -20,4 +20,18 @@ class MasterController extends Controller
 
         return $value;
     }
+    public function showByLocationLength(Master $master)
+    {
+        $value = $master->disastersLoc;
+
+
+        return $value->count();
+    }
+    
+    public function showByTypeLength(Master $master)
+    {
+        $value = $master->disastersType;
+
+        return $value->count;
+    }
 }

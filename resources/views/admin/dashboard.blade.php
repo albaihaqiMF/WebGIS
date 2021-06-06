@@ -3,23 +3,26 @@
 @section('style')
 <style>
     .detail {
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
         height: 200px;
         margin: 20px;
-        box-shadow: 0 0 10px 1px black;
+        box-shadow: 0 0 5px 1px black;
         border-radius: 10px;
     }
-    .disaster{
-        background-color: #336b87;
-    }
-    .user{
-        background-color: #90afc5;
+
+    .disaster {
+        border-left: solid 10px #336b87;
     }
 
-    .detail:hover{
+    .user {
+        border-left: solid 10px #81b214;
+    }
+
+    .detail:hover {
         filter: brightness(110%)
     }
 
@@ -31,10 +34,12 @@
         height: 80px;
         border-radius: 10%
     }
-    .display-4{
-        color: aliceblue
+
+    .display-4 {
+        color: #132c33;
     }
-    a.detail{
+
+    a.detail {
         text-decoration: none;
     }
 </style>

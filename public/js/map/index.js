@@ -17,7 +17,39 @@ L.tileLayer(
 
 const urlParam = new URLSearchParams(window.location.search);
 
-//JQuery Start
+async function getDataMaps(apiUrl) {
+    let url = await fetch(apiUrl);
+    let data = await url.text();
+    let color;
+    //switch case
+    switch (true) {
+        case data > 50:
+            color = "#1a0d00";
+            break;
+        case data > 20:
+            color = "#663300";
+            break;
+        case data > 5:
+            color = "#cc6600";
+            break;
+        case data > 0:
+            color = "#ffcc99";
+            break;
+        case data == 0:
+            color = "#ffffff";
+            break;
+        default:
+            break;
+    }
+    return{
+        'color':color,
+        'data':data
+    };
+}
+
+//------------------------------------------------------------------------------------------------------//
+//--------------------------------------------JQuery----------------------------------------------------//
+//------------------------------------------------------------------------------------------------------//
 $(document).ready(function () {
     var zoomValue = map.getZoom();
 
@@ -36,37 +68,21 @@ $(document).ready(function () {
             // onEachFeature Customing
             onEachFeature: function (feature, layer) {
                 var name = feature.properties.NAME_2;
-                var varname = feature.properties.VARNAME_2;
-                var iconCustom = L.divIcon({
-                    className: "marker-polygon",
-                    html: `<b>${name}</b>`,
-                    iconSize: [100, 20],
+                var id = feature.properties.ID_2;
+                var api = `http://localhost:8000/api/disaster/kabupaten/length/${id}`;
+                getDataMaps(api).then((result) => {
+                    layer.setStyle({
+                        fillColor: result.color,
+                        fillOpacity: result.data == 0 ? '0' : '.5'
+                    });
+                    layer.bindPopup(`Kabupaten : ${name} | Jumlah Bencana : ${result.data}`);
                 });
-                // L.marker(layer.getBounds().getCenter(),{icon:iconCustom}).addTo(map)
-                if (map.getZoom() < 10) {
-                    $("window").on("resize");
-                    layer.on("mouseover", function () {
-                        this.setStyle({
-                            fillColor: "#004d00",
-                            fillOpacity: ".6",
-                        });
-                    });
-                    layer.on("mouseout", function () {
-                        this.setStyle({
-                            fillColor: "#00b300",
-                            fillOpacity: "0.5",
-                        });
-                    });
-                }
 
                 layer.on("click", function () {
                     map.flyToBounds(layer.getBounds());
                 });
-                layer.bindPopup(name, varname);
             },
         });
         geojson.addTo(map);
     });
 }); //JQuery End
-
-console.log(disaster);
