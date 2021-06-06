@@ -68,3 +68,5 @@ $(document).ready(function () {
         geojson.addTo(map);
     });
 }); //JQuery End
+
+console.log(disaster);

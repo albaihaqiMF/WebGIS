@@ -10,9 +10,10 @@ class Disaster extends Model
     use HasFactory;
     public function masterKabupaten()
     {
-        return $this->belongsTo(Master::class,'kabupaten_id','code');
+        return $this->belongsTo(Master::class, 'kabupaten_id', 'code');
     }
-    public function masterDisaster(){
-        return $this->belongsTo(Master::class,'disaster_id','code');
+    public function masterDisaster()
+    {
+        return $this->belongsTo(Master::class, 'disaster_id', 'code');
     }
 }

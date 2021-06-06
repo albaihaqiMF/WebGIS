@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Master extends Model
 {
-    public function disasters()
+    public function disastersLoc()
     {
-        return $this->hasMany(Disaster::class);
+        return $this->hasMany(Disaster::class,'kabupaten_id','code');
+    }
+    public function disastersType()
+    {
+        return $this->hasMany(Disaster::class,'disaster_id','code');
     }
 }

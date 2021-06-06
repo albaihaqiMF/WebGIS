@@ -22,17 +22,17 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/',[MapController::class,'index'])->name('maps');
 
 
 //User Pages
-Route::group(['middleware'=>['auth', 'rolePermissions:1,2']],function(){
+Route::group(['middleware' => ['auth', 'rolePermissions:1,2']], function () {
+    Route::get('/', [MapController::class, 'index'])->name('maps');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 });
 
 //Admin Pages
-Route::group(['middleware'=>['auth','rolePermissions:2']],function(){
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-
+Route::group(['middleware' => ['auth', 'rolePermissions:2']], function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/disaster', [AdminController::class, 'disaster'])->name('admin.disaster');
+    Route::get('/admin/user_detail', [AdminController::class, 'user_detail'])->name('admin.user');
 });
