@@ -8,17 +8,20 @@
             width: 250px;
             height: 100vh;
             position: fixed;
+            background: #132c33;
         }
 
         .header-sidebar {
             margin: 0;
-            padding: 0;
-            background: url('../image/mount.jpg');
+            padding: 10px;
             background-size: cover;
-            height: 120px;
+            height: auto;
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        .card-sidebar h3{
+            color: #d8e3e7;
         }
         .body-sidebar{
             margin-top: 20px
@@ -31,7 +34,8 @@
             width: 100%;
         }
         .body-sidebar a:hover{
-            background: cyan;
+            background: #126e82;
+            color: #d8e3e7;
         }
         i.fas{
             display: flex;
@@ -54,7 +58,8 @@
             outline: none;
             border: none;
             padding: 20px;
-            margin-bottom: 20px
+            margin-bottom: 20px;
+            color: #d8e3e7;
         }
     </style>
     <title>Admin</title>

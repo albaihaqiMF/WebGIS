@@ -1,12 +1,10 @@
 <div class="sidebar shadow-lg">
   <div class="header-sidebar">
     <div class="card-sidebar" align="center">
-      <i class="fas fa-user-shield fa-3x"></i>
-      <div>
-        <h3>Admin</h3>
-      </div>
+      <h3>Admin WebGIS</h3>
     </div>
   </div>
+  <hr>
   <div class="body-sidebar">
     <a style="text-decoration: none" href="{{route('admin')}}">Dashboard<i class="fas fa-box"></i></a>
     <a style="text-decoration: none" href="{{route('admin.disaster')}}">Disaster<i class="fas fa-globe-asia"></i></a>

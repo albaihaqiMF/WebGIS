@@ -41,9 +41,9 @@ async function getDataMaps(apiUrl) {
         default:
             break;
     }
-    return{
-        'color':color,
-        'data':data
+    return {
+        color: color,
+        data: data,
     };
 }
 
@@ -51,14 +51,12 @@ async function getDataMaps(apiUrl) {
 //--------------------------------------------JQuery----------------------------------------------------//
 //------------------------------------------------------------------------------------------------------//
 $(document).ready(function () {
-    var zoomValue = map.getZoom();
-
     $.get(url, function (data) {
         var geojson = L.geoJSON(data, {
             // geojson styling
             style: function (f) {
                 return {
-                    weight: 0.5,
+                    weight: ".8",
                     color: "#004d00",
                     fillColor: "#00b300",
                     fillOpacity: ".5",
@@ -73,10 +71,23 @@ $(document).ready(function () {
                 getDataMaps(api).then((result) => {
                     layer.setStyle({
                         fillColor: result.color,
-                        fillOpacity: result.data == 0 ? '0' : '.5'
                     });
-                    layer.bindPopup(`Kabupaten : ${name} | Jumlah Bencana : ${result.data}`);
+                    layer.bindPopup(
+                        `Kabupaten : ${name} | Jumlah Bencana : ${result.data}`
+                    );
                 });
+                layer.on('mouseover', function () {
+                    this.setStyle({
+                      'fillOpacity': '.6',
+                      'weight':'1'
+                    });
+                  });
+                  layer.on('mouseout', function () {
+                    this.setStyle({
+                      'fillOpacity': '.5',
+                      'weight':'.8'
+                    });
+                  });
 
                 layer.on("click", function () {
                     map.flyToBounds(layer.getBounds());

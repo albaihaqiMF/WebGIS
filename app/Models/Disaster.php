@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Disaster extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title','created_at','kabupaten_id','disaster_id'];
+
     public function masterKabupaten()
     {
         return $this->belongsTo(Master::class, 'kabupaten_id', 'code');

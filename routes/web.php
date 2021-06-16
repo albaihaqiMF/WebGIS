@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DisasterController;
 use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,7 @@ Route::group(['middleware' => ['auth', 'rolePermissions:1,2']], function () {
 //Admin Pages
 Route::group(['middleware' => ['auth', 'rolePermissions:2']], function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin');
-    Route::get('/admin/disaster', [AdminController::class, 'disaster'])->name('admin.disaster');
+    Route::get('/admin/disaster', [DisasterController::class, 'index'])->name('admin.disaster');
+    Route::post('/admin/disaster/post', [DisasterController::class, 'store'])->name('admin.disaster.store');
     Route::get('/admin/user_detail', [AdminController::class, 'user_detail'])->name('admin.user');
 });
