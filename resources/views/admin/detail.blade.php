@@ -39,7 +39,7 @@
     <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal">
         Masukkan Data Baru
     </button>
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <thead>
             <tr class="table-active">
                 <th scope="col">Nama Bencana</th>

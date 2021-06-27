@@ -52,9 +52,8 @@
         <div id="mapid"></div>
     </div>
 </body>
-<script>
-    var disaster = {{App\Models\Disaster::count()}}
-</script>
+<script src="{{asset('js/map/color-map.js')}}"></script>
+<script src="{{asset('js/map/component.js')}}"></script>
 <script src="{{ asset('js/map/index.js')}}"></script>
 
 </html>

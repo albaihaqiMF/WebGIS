@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('disaster/kabupaten/{master:code}',[MasterController::class,'showByLocation']);
+Route::get('disaster/kabupaten',[MasterController::class,'showByLocation']);
 Route::get('disaster/kabupaten/length/{master:code}',[MasterController::class,'showByLocationLength']);
-Route::get('disaster/type/{master:code}',[MasterController::class,'showByType']);
+Route::get('disaster/type',[MasterController::class,'showByType']);
 Route::get('disaster/type/length/{master:code}',[MasterController::class,'showByType']);

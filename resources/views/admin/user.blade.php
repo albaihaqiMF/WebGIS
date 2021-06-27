@@ -7,7 +7,7 @@
             <h1>Data Bencana Provinsi Lampung</h1>
         </div>
     </div>
-    <table class="table table-hover">
+    <table class="table table-hover table-striped">
         <thead>
             <tr class="table-primary">
                 <th scope="col">Nama</th>
