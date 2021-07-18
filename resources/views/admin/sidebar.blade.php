@@ -6,9 +6,10 @@
   </div>
   <hr>
   <div class="body-sidebar">
-    <a style="text-decoration: none" href="{{route('admin')}}">Dashboard<i class="fas fa-box"></i></a>
-    <a style="text-decoration: none" href="{{route('admin.disaster')}}">Disaster<i class="fas fa-globe-asia"></i></a>
-    <a style="text-decoration: none" href="{{route('admin.user')}}">Users<i class="fas fa-users"></i></a>
+    {{$url = "http://localhost:8000/admin/"}}
+    <a style="text-decoration: none" {{ url()->current() == $url.'dashboard' ? "class=active" : ''}} href="{{route('admin')}}">Beranda<i class="fas fa-box"></i></a>
+    <a style="text-decoration: none" {{ url()->current() == $url.'disaster' ? "class=active" : ''}} href="{{route('admin.disaster')}}">Bencana<i class="fas fa-globe-asia"></i></a>
+    <a style="text-decoration: none" {{ url()->current() == $url.'user_detail' ? "class=active" : ''}} href="{{route('admin.user')}}">Pengguna<i class="fas fa-users"></i></a>
     <a style="text-decoration: none" href="{{route('maps')}}">Maps<i class="fas fa-map-marked-alt"></i></a>
   </div>
   <div class="footer-sidebar">

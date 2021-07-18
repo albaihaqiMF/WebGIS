@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row p-3">
         <div class="justify-content-center">
-            <h1>Data Bencana Provinsi Lampung</h1>
+            <h1>Data Pengguna</h1>
         </div>
     </div>
     <table class="table table-hover table-striped">

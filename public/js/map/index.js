@@ -36,8 +36,8 @@ const allData = (disaster_id) => {
 
         // onEachFeature Customing
         onEachFeature: function (feature, layer) {
-            var name = feature.properties.NAME_2;
-            var id = feature.properties.ID_2;
+            var name = feature.properties.Kabupaten;
+            var id = feature.properties.kode;
             var api = "http://localhost:8000/api/disaster/type";
             var type = disaster_id;
             mapData(api, id, type).then((result) => {

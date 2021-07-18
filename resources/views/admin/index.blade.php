@@ -33,6 +33,10 @@
             font-size: 18px;
             width: 100%;
         }
+        .body-sidebar a.active{
+            background: #d8e3e7;
+            color: #126e82
+        }
         .body-sidebar a:hover{
             background: #126e82;
             color: #d8e3e7;
